@@ -20,7 +20,7 @@ public class PumpkinTosser : MonoBehaviour {
 	}*/
 	void Update ()
 	{
-		setGameOverFlagIfAllBlocksAreDown();
+		//setGameOverFlagIfAllBlocksAreDown();
 
 		//allows user to move the camera with WASD keys
 		float deltaX = Input.GetAxis("Horizontal") * Time.deltaTime * moveSpeed;

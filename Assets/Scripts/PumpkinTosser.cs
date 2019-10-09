@@ -57,9 +57,9 @@ public class PumpkinTosser : MonoBehaviour {
 		else 
 		{
 			Rect rect1 = new Rect(10, 10, 350, 50);
-			GUI.Label(rect1, "<size=20>Aim and knowck down all the red blocks with as few pumpkins as possible</size>", gs);
+			GUI.Label(rect1, "<size=20>Aim and knock down all the red blocks with as few pumpkins as possible</size>", gs);
 			Rect rect2 = new Rect(10, 70, 350, 40);
-			GUI.Label(rect2, "<size=20>" + pumpkinCount + " pumpkins fired so far</size>", gs);
+			GUI.Label(rect2, "<size=20> " + pumpkinCount + "pumpkins fired so far</size>", gs);
 
 			float x = Input.mousePosition.x - (crosshairTexture.width/2);       
 			float y = Screen.height -(Input.mousePosition.y + (crosshairTexture.height/2));       

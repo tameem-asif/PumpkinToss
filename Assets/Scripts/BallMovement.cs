@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class BallMovement : MonoBehaviour {
 
@@ -25,12 +26,13 @@ public class BallMovement : MonoBehaviour {
 		rb = ball.GetComponent<Rigidbody>();
 		offset = transform.position - ball.transform.position;
 		ballsLeft = GameObject.FindGameObjectsWithTag("ballToKill").Length;
+		hitsLeft = 12f;
 	}
 	
 	// Update is called once per frame
 	void Update ()
 	{
-		//setGameOverFlagIfAllBlocksAreDown();
+		setIsGameOver();
 
 		//allows user to move the camera with WASD keys
 		float deltaX = Input.GetAxis("Mouse X") * camMoveSpeed;
@@ -38,22 +40,6 @@ public class BallMovement : MonoBehaviour {
 		transform.Rotate(0, deltaX, 0);
 
 		ballsLeft = GameObject.FindGameObjectsWithTag("ballToKill").Length;
-
-		/*if(!isGameOver && Input.GetButtonUp("Fire1"))
-		{
-			Rigidbody pumpkinInstance = Instantiate(pumpkin, transform.position, transform.rotation) as Rigidbody;
-			pumpkinCount++;
-
-			/*Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-			RaycastHit hit;
-			if(Physics.Raycast (ray, out hit))
-			{
-				pumpkinInstance.transform.LookAt(hit.point);
-				pumpkinInstance.velocity = (pumpkinInstance.transform.forward) * initialSpeed;
-			}*/
-			/*Vector3 fwd = transform.TransformDirection(Vector3.forward);
-			pumpkinInstance.AddForce(fwd*initialSpeed);
-		}*/
 
 		if(Input.GetKeyDown("1"))
 		{
@@ -91,6 +77,11 @@ public class BallMovement : MonoBehaviour {
 			hitsLeft--;
 		}
 
+		if(Input.GetKeyDown("escape"))
+		{
+			SceneManager.LoadScene("LoseScene");
+		}
+
 	}
 
 	void OnGUI ()
@@ -116,5 +107,18 @@ public class BallMovement : MonoBehaviour {
 	void LateUpdate()
 	{
 		transform.position = ball.transform.position + offset;
+	}
+
+	void setIsGameOver()
+	{
+		if(hitsLeft <= 0)
+		{
+			SceneManager.LoadScene("LoseScene");
+		}
+
+		if(ballsLeft <= 0)
+		{
+			SceneManager.LoadScene("WinScene");
+		}
 	}
 }

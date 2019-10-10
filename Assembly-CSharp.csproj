@@ -63,7 +63,10 @@
      <Compile Include="Assets\SampleScenes\Scripts\SlowMoButton.cs" />
      <Compile Include="Assets\Scripts\BallMovement.cs" />
      <Compile Include="Assets\Scripts\DestroyBall.cs" />
+     <Compile Include="Assets\Scripts\InstructionButton.cs" />
      <Compile Include="Assets\Scripts\PumpkinTosser.cs" />
+     <Compile Include="Assets\Scripts\QuitButton.cs" />
+     <Compile Include="Assets\Scripts\StartButton.cs" />
      <None Include="Assets\SampleScenes\Shaders\Skybox-Procedural.shader" />
  <Reference Include="UnityEditor.StandardEvents">
  <HintPath>C:/Users/Family/Documents/PumpkinTossTameem/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
